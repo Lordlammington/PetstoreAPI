@@ -7,7 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 AUTHOR: Liam Ward: liamtgward@gmail.com
 LAST_EDITED: 10/10/2021 - Liam Ward
 OVERVIEW: This code Requests all avaiable pets from the swagger Petstore API and prints all categories in reverse alphabetical order.
-Update of Petshop Requester Inital Commit
  */
 
 namespace PetStoreAPI
