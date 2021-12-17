@@ -12,27 +12,24 @@
 
 This is the Re Worked version of the Petsore API done for a job interview at UNIFY technologies.
 
-
 # Running the Program
 
-1: Clone Repo into visual Studio
-2: Run it
+1: Clone repo into visual Studio
+
+2: Run it!
 
 # Deliberate Decisions
 
-**Why is the Swagger Petshiop Call Not Async?!**
+**Why is the Swagger Petshop Call Not Async?!**
 
-There's only 1 call ever made in the eintire runtime of this program, While i'd agree that blockign the main thread 
-is a bad idea unless the data requested is very large (currently it's only about 100 enteries) Then i dont see much point in implinenting
-a async function call.
+There's only 1 call ever made in the entire runtime of this program, While I agree that blocking the main thread 
+is a bad idea, unless the data requested is very large (currently it's only about 100 enteries) Then I dont see much point in implinenting
+an async function call. Furthermore, an async call wont actually speed up the program. There are only 2 functions.
 
-Needless to mention that the call wont actually speed up the program, as there are only 2 functions, each depending on eachother directly.
-
-**What if i want to Get not available pets? Sold ones?**
+**What if i want to Get not available pets? Sold ones? Anyhting Else**
 
 The URL that you send a request to will often return the type you're looking for. The appsettings.json file is where the URL is stored, if you want to change things like what pets are treurned then you can change that.
 
 **What is this ASCII art?**
 
 It looks cool.
-
