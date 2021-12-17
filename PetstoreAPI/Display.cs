@@ -9,7 +9,10 @@ namespace PetStoreAPI
 {
     class Display : IDisplay
     {
-        //I Regret Nothing
+        /// <summary>
+        /// Prints out some wicked cool ASCII art
+        /// I Regret Nothing
+        /// </summary>
         public void Title()
         {
             Console.WriteLine(@"  ____  _____ _____ ____ _____ ___  ____  _____      _    ____ ___ ");

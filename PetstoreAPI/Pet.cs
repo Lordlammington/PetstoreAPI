@@ -10,6 +10,7 @@ namespace PetStoreAPI
 {
     public class PetName
     {
-        public string name { set; get; }
+        [JsonProperty("name")]
+        public string Name { set; get; }
     }
 }
