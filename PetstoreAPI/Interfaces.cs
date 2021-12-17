@@ -9,7 +9,6 @@ namespace PetStoreAPI
     public interface IAPIRequest
     {
         List<PetName> APIRequester(string url);
-
     }
     public interface IRequestOrchestration
     {
@@ -19,10 +18,8 @@ namespace PetStoreAPI
     {
         IEnumerable<string> ReverseSortPetNames(List<PetName> allPets);
     }
-
     public interface IDisplay
     {
         void Title();
     }
-    
 }
