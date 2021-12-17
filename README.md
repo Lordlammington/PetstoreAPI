@@ -1,6 +1,8 @@
 # Pet Store API
+This is the reworked version of the petsore API done for a job interview at UNIFY solutions.
 
-#Original Business Requirements (What Was in the Email sent to me many moons ago)
+
+# **Business Requirements (The Email sent to me many moons ago)**
 
 ·  Browse Swagger documentation at https://petstore.swagger.io/
 
@@ -10,7 +12,7 @@
 
 ·  Write at least one unit test for your code and deliver your code (with instructions in the form of a Readme file in markdown) for review
 
-This is the Re Worked version of the Petsore API done for a job interview at UNIFY technologies.
+
 
 # Running the Program
 
@@ -28,7 +30,7 @@ an async function call. Furthermore, an async call wont actually speed up the pr
 
 **What if i want to Get not available pets? Sold ones? Anyhting Else**
 
-The URL that you send a request to will often return the type you're looking for. The appsettings.json file is where the URL is stored, if you want to change things like what pets are treurned then you can change that.
+The URL that you send a request to will often return the type you're looking for. The appsettings.json file is where the URL is stored, if you want to change things like what pets are treurned then you can change that. if you'd like to spend time playing with the API call then Refer the the swagger.io documentation
 
 **What is this ASCII art?**
 
