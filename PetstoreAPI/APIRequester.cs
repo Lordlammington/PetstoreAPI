@@ -12,6 +12,14 @@ namespace PetStoreAPI
 {
     class APIRequest : IAPIRequest
     {
+        /// <summary>
+        /// using HTTP Web request makes a request. Returns a list of PetName Objects.
+        /// </summary>
+        /// <param name="url"></param>
+        /// The input URL for the program, Passed as a string because converting it to a URL is not needed. There's no editing taking place.
+        /// <returns>
+        /// A list of Pet Names that currently contains just the name.
+        /// </returns>
         public List<PetName> APIRequester(string url) 
         {
             string html;
