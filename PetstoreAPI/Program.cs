@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
 //A Relic of a past I really hope everyone's forgotten
 /*
 AUTHOR: Liam Ward: liamtgward@gmail.com
@@ -35,6 +34,7 @@ namespace PetStoreAPI
             var petStoreApiRequest = serviceProvider.GetRequiredService<IRequestOrchestration>();
 
             petStoreApiRequest.Run();
+
         }
     }
 }

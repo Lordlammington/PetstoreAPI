@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace PetStoreAPI
 {
-    class PetQuery : IPetQuery
+    public class PetQuery : IPetQuery
     { 
         /// <summary>
         /// Sorts through a list of PetName. Returns not null entries in reverse alphabetical order. Utilizes Linq
@@ -16,11 +16,14 @@ namespace PetStoreAPI
         /// </returns>
         public IEnumerable<string> ReverseSortPetNames(List<PetName> allPets)
         {
-            var petCategories = from petName in allPets
+            if (allPets == null) throw new ArgumentNullException(nameof(allPets));
+
+
+            var reverseSortedPetNames = from petName in allPets
                                 where petName.Name != null
                                 orderby petName.Name descending
                                 select petName.Name;
-            return petCategories;
+            return reverseSortedPetNames;
         }
     }
 }
