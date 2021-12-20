@@ -8,6 +8,9 @@ namespace PetStoreTests
 {
     public class LINQUnitTests
     {
+        /// <summary>
+        /// Given a list of 3 pet names, When that list is forward alphabetically (A - Z) sorted Then the returned output should be a reversed sorted list (Z - A)
+        /// </summary>
         [Fact]
         public void LINQ_Valid_PetNameList()
         {
@@ -26,13 +29,14 @@ namespace PetStoreTests
 
             var sortedPetNames = query.ReverseSortPetNames(Pets);
 
-            var first = sortedPetNames.First();
+            //Testing the reverse alphabetical sort The first name in the above defined list should become the last.
             var last = Pets.Last().Name;
-
-
-            Assert.True(first == last);
+            Assert.True(sortedPetNames.First() == last);
         }
 
+        /// <summary>
+        /// Given A list of Null pet names When the list is passed in Then the null entries should be dropped and an empty string should be returned
+        /// </summary>
         [Fact]
         public void LINQ_Null_PetNameList()
         {
@@ -53,6 +57,9 @@ namespace PetStoreTests
             Assert.False(sortedPetNames.Any());
         }
 
+        /// <summary>
+        /// Given a List of Empty pet names When passed in, Then the list should return the same list. Empty pet names are not checked only null names.
+        /// </summary>
         [Fact]
         public void LINQ_Empty_PetNameList()
         {
@@ -73,6 +80,9 @@ namespace PetStoreTests
             Assert.True(sortedPetNames.Any());
         }
 
+        /// <summary>
+        /// Given a null list, When passed in, Then expect a Null exception error to be thrown.
+        /// </summary>
         [Fact]
         public void LINQ_Null_List()
         {
@@ -82,6 +92,9 @@ namespace PetStoreTests
             Assert.Throws<ArgumentNullException>(() => query.ReverseSortPetNames(pets));
         }
 
+        /// <summary>
+        /// Given a list of half Null and half valid entries, When passed in, Then only return a list of 3 entries
+        /// </summary>
         [Fact]
         public void LINQ_MixedList_NullValid()
         {
@@ -104,6 +117,10 @@ namespace PetStoreTests
 
             Assert.True(sortedPetNames.Count() == 3);
         }
+
+        /// <summary>
+        /// Given when a list of half empty and half valid pets, When passed in, Then return a list of 6 entries.
+        /// </summary>
         [Fact]
         public void LINQ_MixedList_EmptyValid()
         {
@@ -124,9 +141,12 @@ namespace PetStoreTests
 
             var sortedPetNames = query.ReverseSortPetNames(Pets);
 
-            Assert.True(sortedPetNames.Any());
+            Assert.True(sortedPetNames.Count() == 6);
         }
 
+        /// <summary>
+        ///  Given when a list of half empty and half null pets, When passed in, Then return a list of 3 entries.
+        /// </summary>
         [Fact]
         public void LINQ_MixedList_EmptyNull()
         {

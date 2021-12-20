@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "WSL": {
+      "commandName": "WSL2"
+    },
+    "PetStore": {
+      "commandName": "Project"
+    }
+  }
+}

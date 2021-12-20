@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace PetStoreAPI
@@ -15,10 +10,9 @@ namespace PetStoreAPI
         /// <summary>
         /// using HTTP Web request makes a request. Returns a list of PetName Objects.
         /// </summary>
-        /// <param name="url"></param>
-        /// The input URL for the program, Passed as a string because converting it to a URL is not needed. There's no editing taking place.
+        /// <param name="url">The input URL for the program, Passed as a string because converting it to a URL is not needed. There's no editing taking place.</param>
         /// <returns>
-        /// A list of Pet Names that currently contains just the name.
+        /// Deserialized list of PetName objects, Currently just the pet names.
         /// </returns>
         public List<PetName> APIRequester(string url) 
         {
