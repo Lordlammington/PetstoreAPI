@@ -1,5 +1,5 @@
 # Pet Store API
-This is the reworked version of the petsore API done for a job interview at UNIFY solutions.
+This is the reworked version of the petstore API done for a job interview at UNIFY solutions.
 
 
 # **Business Requirements (The Email sent to me many moons ago)**
@@ -24,13 +24,13 @@ This is the reworked version of the petsore API done for a job interview at UNIF
 
 **Why is the Swagger Petshop Call Not Async?!**
 
-There's only 1 call ever made in the entire runtime of this program, While I agree that blocking the main thread 
+There's only 1 call ever made in the entire runtime of this program, while I agree that blocking the main thread 
 is a bad idea, unless the data requested is very large (currently it's only about 100 enteries) Then I dont see much point in implinenting
 an async function call. Furthermore, an async call wont actually speed up the program. There are only 2 functions.
 
-**What if i want to Get not available pets? Sold ones? Anyhting Else**
+**What if I want to Get unavailable pets? Sold ones? Anything Else**
 
-The URL that you send a request to will often return the type you're looking for. The appsettings.json file is where the URL is stored, if you want to change things like what pets are treurned then you can change that. if you'd like to spend time playing with the API call then Refer the the swagger.io documentation
+The URL that you send a request to will often return the type you're looking for. The appsettings.json file is where the URL is stored, if you want to change things like what pets are returned then you can change that. If you'd like to spend time playing with the API call then refer to the the swagger.io documentation
 
 **What is this ASCII art?**
 
