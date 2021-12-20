@@ -9,7 +9,7 @@ namespace PetStoreTests
     public class LINQUnitTests
     {
         /// <summary>
-        /// Given a list of 3 pet names, When that list is forward alphabetically (A - Z) sorted Then the returned output should be a reversed sorted list (Z - A)
+        /// Given a list of 3 pet names, When that list is forward alphabetically (A - Z) sorted, Then the returned output should be a reversed sorted list (Z - A)
         /// </summary>
         [Fact]
         public void LINQ_Valid_PetNameList()
@@ -33,7 +33,7 @@ namespace PetStoreTests
         }
 
         /// <summary>
-        /// Given A list of Null pet names When the list is passed in Then the null entries should be dropped and an empty string should be returned
+        /// Given A list of Null pet names, When the list is passed in, Then the null entries should be dropped and an empty string should be returned
         /// </summary>
         [Fact]
         public void LINQ_Null_PetNameList()
@@ -56,7 +56,7 @@ namespace PetStoreTests
         }
 
         /// <summary>
-        /// Given a List of pet names; That are just spaces. When passed in, Then the list should return the same list. Empty pet names are not checked only null names.
+        /// Given a List of pet names; That are just spaces, When passed in, Then the list should return the same list. Empty pet names are not filtered.
         /// </summary>
         [Fact]
         public void LINQ_WhiteSpace_PetNameList()
@@ -91,7 +91,7 @@ namespace PetStoreTests
         }
 
         /// <summary>
-        /// Given a list of half Null and half valid entries, When passed in, Then only return a list of 3 entries
+        /// Given a list of half Null and half valid entries, When passed in, Then only return a list of not null entries 
         /// </summary>
         [Fact]
         public void LINQ_MixedList_NullValid()
