@@ -26,12 +26,10 @@ namespace PetStoreTests
 
             Pets.AddRange(names);
 
-
             var sortedPetNames = query.ReverseSortPetNames(Pets);
 
-            //Testing the reverse alphabetical sort; The first name in the above defined list should become the last.
-            var last = Pets.Last().Name;
-            Assert.True(sortedPetNames.First() == last);
+            //Testing the reverse alphabetical sort; The entry "ZZZ" should be the first item in the list.
+            Assert.True(sortedPetNames.First() == "ZZZ");
         }
 
         /// <summary>
@@ -58,10 +56,10 @@ namespace PetStoreTests
         }
 
         /// <summary>
-        /// Given a List of Empty pet names When passed in, Then the list should return the same list. Empty pet names are not checked only null names.
+        /// Given a List of pet names; That are just spaces. When passed in, Then the list should return the same list. Empty pet names are not checked only null names.
         /// </summary>
         [Fact]
-        public void LINQ_Empty_PetNameList()
+        public void LINQ_WhiteSpace_PetNameList()
         {
             List<PetName> Pets = new List<PetName>();
             PetQuery query = new PetQuery();
@@ -121,7 +119,7 @@ namespace PetStoreTests
         /// Given when a list of half empty and half valid pets, When passed in, Then return a list of 6 entries.
         /// </summary>
         [Fact]
-        public void LINQ_MixedList_EmptyValid()
+        public void LINQ_MixedList_WhiteSpaceValid()
         {
             List<PetName> Pets = new List<PetName>();
             PetQuery query = new PetQuery();
@@ -147,7 +145,7 @@ namespace PetStoreTests
         ///  Given when a list of half empty and half null pets, When passed in, Then return a list of 3 entries.
         /// </summary>
         [Fact]
-        public void LINQ_MixedList_EmptyNull()
+        public void LINQ_MixedList_WhiteSpaceNull()
         {
             List<PetName> Pets = new List<PetName>();
             PetQuery query = new PetQuery();

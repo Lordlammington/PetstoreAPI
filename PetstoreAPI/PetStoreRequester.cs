@@ -29,7 +29,6 @@ namespace PetStoreAPI
             var petStoreApiRequest = serviceProvider.GetRequiredService<IRequestOrchestration>();
             
             petStoreApiRequest.Run();
-
         }
     }
 }
