@@ -5,8 +5,7 @@ namespace PetStoreAPI
     class Display : IDisplay
     {
         /// <summary>
-        /// Prints out some wicked cool ASCII art
-        /// I Regret Nothing
+        /// Prints out some wicked cool ASCII art (I used a generator).
         /// </summary>
         public void Title()
         {

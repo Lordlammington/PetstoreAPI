@@ -29,7 +29,7 @@ namespace PetStoreTests
 
             var sortedPetNames = query.ReverseSortPetNames(Pets);
 
-            //Testing the reverse alphabetical sort The first name in the above defined list should become the last.
+            //Testing the reverse alphabetical sort; The first name in the above defined list should become the last.
             var last = Pets.Last().Name;
             Assert.True(sortedPetNames.First() == last);
         }
@@ -110,7 +110,6 @@ namespace PetStoreTests
                 new PetName {Name = null},
                 new PetName {Name = null}
             };
-
             Pets.AddRange(names);
 
             var sortedPetNames = query.ReverseSortPetNames(Pets);

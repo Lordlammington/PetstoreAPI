@@ -23,13 +23,10 @@ namespace PetStoreAPI
         /// </summary>
         public void Run()
         {
-            //Run async?
             var allPets = _apiRequest.APIRequester(_settings.WebsiteUrl);
-            
-            
             var sortedAvailablePets = _petQuery.ReverseSortPetNames(allPets);
-
             
+            //Print out the title and pets
             _display.Title();
 
             foreach (var pet in sortedAvailablePets)

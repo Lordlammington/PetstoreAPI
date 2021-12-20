@@ -7,6 +7,4 @@
     {
         public string WebsiteUrl { get; set; }
     }
-    //🐱‍👤
-    
 }

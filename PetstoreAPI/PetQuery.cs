@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PetStoreAPI
@@ -16,7 +17,6 @@ namespace PetStoreAPI
         public IEnumerable<string> ReverseSortPetNames(List<PetName> allPets)
         {
             if (allPets == null) throw new ArgumentNullException(nameof(allPets));
-
 
             var reverseSortedPetNames = from petName in allPets
                                 where petName.Name != null
