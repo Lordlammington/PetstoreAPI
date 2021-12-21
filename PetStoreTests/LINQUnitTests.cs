@@ -6,16 +6,18 @@ using Xunit;
 
 namespace PetStoreTests
 {
-    public class LINQUnitTests
+    public class LinqUnitTests
     {
         /// <summary>
-        /// Given a list of 3 pet names, When that list is forward alphabetically (A - Z) sorted, Then the returned output should be a reversed sorted list (Z - A)
+        /// GIVEN a list of 3 pet names,
+        /// WHEN that list is forward alphabetically (A - Z) sorted,
+        /// THEN the output should be a reversed sorted list (Z - A).
         /// </summary>
         [Fact]
         public void LINQ_Valid_PetNameList()
         {
-            List<PetName> Pets = new List<PetName>();
-            PetQuery query = new PetQuery();
+            var pets = new List<PetName>();
+            var query = new PetQuery();
 
             var names = new[]
             {
@@ -24,22 +26,24 @@ namespace PetStoreTests
                 new PetName {Name = "ZZZ"}
             };
 
-            Pets.AddRange(names);
+            pets.AddRange(names);
 
-            var sortedPetNames = query.ReverseSortPetNames(Pets);
+            var sortedPetNames = query.ReverseSortPetNames(pets);
 
-            //Testing the reverse alphabetical sort; The entry "ZZZ" should be the first item in the list.
+            // Testing the reverse alphabetical sort; The entry "ZZZ" should be the first item in the list.
             Assert.True(sortedPetNames.First() == "ZZZ");
         }
 
         /// <summary>
-        /// Given A list of Null pet names, When the list is passed in, Then the null entries should be dropped and an empty string should be returned
+        /// GIVEN A list of Null pet names,
+        /// WHEN passed in,
+        /// Then an empty list is returned.
         /// </summary>
         [Fact]
         public void LINQ_Null_PetNameList()
         {
-            List<PetName> Pets = new List<PetName>();
-            PetQuery query = new PetQuery();
+            var pets = new List<PetName>();
+            var query = new PetQuery();
 
             var names = new[]
             {
@@ -48,21 +52,23 @@ namespace PetStoreTests
                 new PetName {Name = null}
             };
 
-            Pets.AddRange(names);
+            pets.AddRange(names);
 
-            var sortedPetNames = query.ReverseSortPetNames(Pets);
+            var sortedPetNames = query.ReverseSortPetNames(pets).ToList();
 
             Assert.False(sortedPetNames.Any());
         }
 
         /// <summary>
-        /// Given a List of pet names; That are just spaces, When passed in, Then the list should return the same list. Empty pet names are not filtered.
+        /// GIVEN a List of white space pet names,
+        /// WHEN passed in,
+        /// THEN return the same list of white space pet names.
         /// </summary>
         [Fact]
         public void LINQ_WhiteSpace_PetNameList()
         {
-            List<PetName> Pets = new List<PetName>();
-            PetQuery query = new PetQuery();
+            var pets = new List<PetName>();
+            var query = new PetQuery();
 
             var names = new[]
             {
@@ -71,33 +77,34 @@ namespace PetStoreTests
                 new PetName {Name = "   "}
             };
 
-            Pets.AddRange(names);
+            pets.AddRange(names);
 
-            var sortedPetNames = query.ReverseSortPetNames(Pets);
-
+            var sortedPetNames = query.ReverseSortPetNames(pets).ToList();
             Assert.True(sortedPetNames.Any());
         }
 
         /// <summary>
-        /// Given a null list, When passed in, Then expect a Null exception error to be thrown.
+        /// GIVEN a null list,
+        /// WHEN passed in,
+        /// THEN expect a Null exception error to be thrown.
         /// </summary>
         [Fact]
         public void LINQ_Null_List()
         {
-            List<PetName> pets = null;
-            PetQuery query = new PetQuery();
-
-            Assert.Throws<ArgumentNullException>(() => query.ReverseSortPetNames(pets));
+            var query = new PetQuery();
+            Assert.Throws<ArgumentNullException>(() => query.ReverseSortPetNames(null));
         }
 
         /// <summary>
-        /// Given a list of half Null and half valid entries, When passed in, Then only return a list of not null entries 
+        /// GIVEN a list of half Null and valid entries,
+        /// WHEN passed in,
+        /// THEN return a list of 3 entries reverse sorted.
         /// </summary>
         [Fact]
         public void LINQ_MixedList_NullValid()
         {
-            List<PetName> Pets = new List<PetName>();
-            PetQuery query = new PetQuery();
+            var pets = new List<PetName>();
+            var query = new PetQuery();
 
             var names = new[]
             {
@@ -108,21 +115,23 @@ namespace PetStoreTests
                 new PetName {Name = null},
                 new PetName {Name = null}
             };
-            Pets.AddRange(names);
+            pets.AddRange(names);
 
-            var sortedPetNames = query.ReverseSortPetNames(Pets);
+            var sortedPetNames = query.ReverseSortPetNames(pets).ToList();
+            Assert.True(sortedPetNames.Count == 3 && sortedPetNames.First() == "ZZZ");
 
-            Assert.True(sortedPetNames.Count() == 3);
         }
 
         /// <summary>
-        /// Given when a list of half empty and half valid pets, When passed in, Then return a list of 6 entries.
+        /// GIVEN a list of half empty and valid pets,
+        /// WHEN passed in,
+        /// THEN return a list of 6 entries.
         /// </summary>
         [Fact]
         public void LINQ_MixedList_WhiteSpaceValid()
         {
-            List<PetName> Pets = new List<PetName>();
-            PetQuery query = new PetQuery();
+            var pets = new List<PetName>();
+            var query = new PetQuery();
 
             var names = new[]
             {
@@ -134,21 +143,23 @@ namespace PetStoreTests
                 new PetName {Name = "   "}
             };
 
-            Pets.AddRange(names);
+            pets.AddRange(names);
 
-            var sortedPetNames = query.ReverseSortPetNames(Pets);
+            var sortedPetNames = query.ReverseSortPetNames(pets).ToList();
 
-            Assert.True(sortedPetNames.Count() == 6);
+            Assert.True(sortedPetNames.Count == 6);
         }
 
         /// <summary>
-        ///  Given when a list of half empty and half null pets, When passed in, Then return a list of 3 entries.
+        /// GIVEN a list of half empty and null pets,
+        /// WHEN passed in,
+        /// THEN return 3 entries.
         /// </summary>
         [Fact]
         public void LINQ_MixedList_WhiteSpaceNull()
         {
-            List<PetName> Pets = new List<PetName>();
-            PetQuery query = new PetQuery();
+            var pets = new List<PetName>();
+            var query = new PetQuery();
 
             var names = new[]
             {
@@ -160,11 +171,11 @@ namespace PetStoreTests
                 new PetName {Name = "   "}
             };
 
-            Pets.AddRange(names);
+            pets.AddRange(names);
 
-            var sortedPetNames = query.ReverseSortPetNames(Pets);
+            var sortedPetNames = query.ReverseSortPetNames(pets).ToList();
 
-            Assert.True(sortedPetNames.Count() == 3);
+            Assert.True(sortedPetNames.Count == 3);
         }
     }
 }

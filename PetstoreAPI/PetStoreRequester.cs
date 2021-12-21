@@ -1,19 +1,20 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System;
+using System.IO;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace PetStoreAPI
 {
-    class PetStoreRequester
+    static class PetStoreRequester
     {
         /// <summary>
-        /// Entry Point 
+        /// Entry Point of the whole program
         /// </summary>
-        /// <param name="args"></param>
         static void Main(string[] args)
         {
             //Source the Website URl from the config file
             IConfiguration config = new ConfigurationBuilder()
-                .AddJsonFile(@"C:\Users\LiamWard\source\repos\PetstoreAPI\PetstoreAPI\appsettings.json")
+                .AddJsonFile(Directory.GetCurrentDirectory() + @"\appsettings.json")
                 .AddEnvironmentVariables()
                 .Build();
 

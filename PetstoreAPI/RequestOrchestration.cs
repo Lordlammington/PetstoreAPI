@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Extensions.Options;
 
 namespace PetStoreAPI 
@@ -16,6 +18,7 @@ namespace PetStoreAPI
             _petQuery = petQuery;
             _display = display;
         }
+
         /// <summary>
         /// Makes a Synchronous Web Call to a pet store API, The passed in URL will return
         /// all pets with status available. These pets are then de serialized to a list of objects,
@@ -23,16 +26,12 @@ namespace PetStoreAPI
         /// </summary>
         public void Run()
         {
-            var allPets = _apiRequest.APIRequester(_settings.WebsiteUrl);
-            var sortedAvailablePets = _petQuery.ReverseSortPetNames(allPets);
-            
-            //Print out the title and pets
-            _display.Title();
+            var requestedPetNames = _apiRequest.APIRequester(_settings.WebsiteUrl);
+            //LINQ R
+            var reverseSortedPetNames = _petQuery.ReverseSortPetNames(requestedPetNames).ToList();
 
-            foreach (var pet in sortedAvailablePets)
-            {
-                Console.WriteLine(pet);
-            }
+            //Print out the title and pets
+            _display.PrintOutToConsole(reverseSortedPetNames);
         }
     }
 }

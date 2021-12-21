@@ -28,6 +28,7 @@ namespace PetStoreAPI
     /// </summary>
     public interface IDisplay
     {
-        void Title();
+        void PrintOutToConsole(IEnumerable<string> petList);
+        private void WriteTitle(){}
     }
 }

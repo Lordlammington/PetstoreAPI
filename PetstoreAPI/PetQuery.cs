@@ -22,6 +22,7 @@ namespace PetStoreAPI
                                 where petName.Name != null
                                 orderby petName.Name descending
                                 select petName.Name;
+
             return reverseSortedPetNames;
         }
     }

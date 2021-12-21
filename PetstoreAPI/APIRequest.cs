@@ -5,7 +5,10 @@ using Newtonsoft.Json;
 
 namespace PetStoreAPI
 {
-    class APIRequest : IAPIRequest
+
+
+
+    public sealed class APIRequest : IAPIRequest
     {
         /// <summary>
         /// using HTTP Web request makes a request. Returns a list of PetName Objects.
