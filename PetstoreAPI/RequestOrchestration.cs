@@ -1,20 +1,21 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 
 namespace PetStoreAPI 
 {
     class RequestOrchestration : IRequestOrchestration
     {
-        private readonly IAPIRequest _apiRequest;
-        private readonly IPetQuery _petQuery;
-        private readonly IDisplay _display;
+        private readonly IWebRequest _webRequest;
+        private readonly IReverseAlphSortPets _reverseAlphSortPets;
+        private readonly IConsoleWrite _consoleWrite;
         private readonly ApplicationSettings _settings;
-        public RequestOrchestration(IOptions<ApplicationSettings> settings, IAPIRequest apiRequest, IPetQuery petQuery, IDisplay display)
+        public RequestOrchestration(IOptions<ApplicationSettings> settings, IWebRequest webRequest, IReverseAlphSortPets reverseAlphSortPets, IConsoleWrite consoleWrite)
         {
             _settings = settings.Value;
-            _apiRequest = apiRequest;
-            _petQuery = petQuery;
-            _display = display;
+            _webRequest = webRequest;
+            _reverseAlphSortPets = reverseAlphSortPets;
+            _consoleWrite = consoleWrite;
         }
 
         /// <summary>
@@ -24,12 +25,13 @@ namespace PetStoreAPI
         /// </summary>
         public void Run()
         {
-            var requestedPetNames = _apiRequest.APIRequester(_settings.WebsiteUrl);
+            var requestedPetNames = _webRequest.JsonDeSerializer(_settings.WebsiteUrl);
+
             //LINQ R
-            var reverseSortedPetNames = _petQuery.ReverseSortPetNames(requestedPetNames).ToList();
+            var reverseSortedPetNames = _reverseAlphSortPets.ReverseSortPetNames(requestedPetNames).ToList();
 
             //Print out the title and pets
-            _display.PrintOutToConsole(reverseSortedPetNames);
+            _consoleWrite.PrintOutToConsole(reverseSortedPetNames);
         }
     }
 }
