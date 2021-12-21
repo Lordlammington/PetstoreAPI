@@ -20,10 +20,10 @@ namespace PetStoreAPI
             //Add Classes to the service provider
             var serviceProvider = new ServiceCollection()
                 .AddSingleton<IRequestOrchestration, RequestOrchestration>()
-                .AddSingleton<IPetQuery, PetQuery>()
-                .AddSingleton<IAPIRequest, APIRequest >()
-                .AddSingleton<IDisplay, Display>()
-                .Configure<Settings>(config.GetRequiredSection("Settings"))
+                .AddSingleton<IPetQuery, ReverseAlphSortPets>()
+                .AddSingleton<IAPIRequest, WebRequester >()
+                .AddSingleton<IDisplay, ConsoleWrite>()
+                .Configure<ApplicationSettings>(config.GetRequiredSection("Settings"))
                 .BuildServiceProvider();
 
             var petStoreApiRequest = serviceProvider.GetRequiredService<IRequestOrchestration>();

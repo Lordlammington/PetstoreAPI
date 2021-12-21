@@ -6,13 +6,13 @@ using Xunit;
 
 namespace PetStoreTests
 {
-    public class DisplayTests
+    public class ConsoleWrite_Tests
     {
         [Fact]
         public void DisplayValidPetNames()
         {
             var pets = new List<PetName>();
-            var display = new Display();
+            var display = new ConsoleWrite();
 
             var names = new[]
             {
@@ -34,7 +34,7 @@ namespace PetStoreTests
         public void DisplayNullPetNames()
         {
             var pets = new List<PetName>();
-            var display = new Display();
+            var display = new ConsoleWrite();
             var names = new[]
             {
                 new PetName {Name = null},
@@ -54,7 +54,7 @@ namespace PetStoreTests
         [Fact]
         public void DisplayNullList()
         {
-            var display = new Display();
+            var display = new ConsoleWrite();
             Assert.Throws<ArgumentNullException>(() => display.PrintOutToConsole(null));
         }
     }

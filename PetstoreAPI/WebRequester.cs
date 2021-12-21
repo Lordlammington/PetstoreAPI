@@ -8,7 +8,7 @@ namespace PetStoreAPI
 
 
 
-    public sealed class APIRequest : IAPIRequest
+    public sealed class WebRequester : IAPIRequest
     {
         /// <summary>
         /// using HTTP Web request makes a request. Returns a list of PetName Objects.

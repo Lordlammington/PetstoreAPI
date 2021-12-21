@@ -6,7 +6,7 @@ using Xunit;
 
 namespace PetStoreTests
 {
-    public class LinqUnitTests
+    public class ReverseAlphSortPets_Tests
     {
         /// <summary>
         /// GIVEN a list of 3 pet names,
@@ -17,7 +17,7 @@ namespace PetStoreTests
         public void LINQ_Valid_PetNameList()
         {
             var pets = new List<PetName>();
-            var query = new PetQuery();
+            var query = new ReverseAlphSortPets();
 
             var names = new[]
             {
@@ -43,7 +43,7 @@ namespace PetStoreTests
         public void LINQ_Null_PetNameList()
         {
             var pets = new List<PetName>();
-            var query = new PetQuery();
+            var query = new ReverseAlphSortPets();
 
             var names = new[]
             {
@@ -68,7 +68,7 @@ namespace PetStoreTests
         public void LINQ_WhiteSpace_PetNameList()
         {
             var pets = new List<PetName>();
-            var query = new PetQuery();
+            var query = new ReverseAlphSortPets();
 
             var names = new[]
             {
@@ -91,7 +91,7 @@ namespace PetStoreTests
         [Fact]
         public void LINQ_Null_List()
         {
-            var query = new PetQuery();
+            var query = new ReverseAlphSortPets();
             Assert.Throws<ArgumentNullException>(() => query.ReverseSortPetNames(null));
         }
 
@@ -104,7 +104,7 @@ namespace PetStoreTests
         public void LINQ_MixedList_NullValid()
         {
             var pets = new List<PetName>();
-            var query = new PetQuery();
+            var query = new ReverseAlphSortPets();
 
             var names = new[]
             {
@@ -131,7 +131,7 @@ namespace PetStoreTests
         public void LINQ_MixedList_WhiteSpaceValid()
         {
             var pets = new List<PetName>();
-            var query = new PetQuery();
+            var query = new ReverseAlphSortPets();
 
             var names = new[]
             {
@@ -159,7 +159,7 @@ namespace PetStoreTests
         public void LINQ_MixedList_WhiteSpaceNull()
         {
             var pets = new List<PetName>();
-            var query = new PetQuery();
+            var query = new ReverseAlphSortPets();
 
             var names = new[]
             {

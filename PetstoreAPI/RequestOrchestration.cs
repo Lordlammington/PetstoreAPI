@@ -8,8 +8,8 @@ namespace PetStoreAPI
         private readonly IAPIRequest _apiRequest;
         private readonly IPetQuery _petQuery;
         private readonly IDisplay _display;
-        private readonly Settings _settings;
-        public RequestOrchestration(IOptions<Settings> settings, IAPIRequest apiRequest, IPetQuery petQuery, IDisplay display)
+        private readonly ApplicationSettings _settings;
+        public RequestOrchestration(IOptions<ApplicationSettings> settings, IAPIRequest apiRequest, IPetQuery petQuery, IDisplay display)
         {
             _settings = settings.Value;
             _apiRequest = apiRequest;

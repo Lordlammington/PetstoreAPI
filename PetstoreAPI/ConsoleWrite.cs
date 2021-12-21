@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PetStoreAPI
 {
-    public class Display : IDisplay
+    public class ConsoleWrite : IDisplay
     {
         /// <summary>
         /// Prints out some wicked cool ASCII art (I used a generator).

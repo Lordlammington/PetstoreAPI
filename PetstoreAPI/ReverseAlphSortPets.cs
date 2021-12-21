@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace PetStoreAPI
 {
-    public class PetQuery : IPetQuery
+    public class ReverseAlphSortPets : IPetQuery
     { 
         /// <summary>
         /// Sorts through a list of PetName. Returns not null entries in reverse alphabetical order. Utilizes Linq
