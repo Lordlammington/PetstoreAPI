@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PetStoreAPI
 {
-    public class PetQuery : IPetQuery
+    public class ReverseAlphSortPets : IReverseAlphSortPets
     { 
         /// <summary>
         /// Sorts through a list of PetName. Returns not null entries in reverse alphabetical order. Utilizes Linq
@@ -17,11 +18,11 @@ namespace PetStoreAPI
         {
             if (allPets == null) throw new ArgumentNullException(nameof(allPets));
 
-
             var reverseSortedPetNames = from petName in allPets
                                 where petName.Name != null
                                 orderby petName.Name descending
                                 select petName.Name;
+
             return reverseSortedPetNames;
         }
     }
